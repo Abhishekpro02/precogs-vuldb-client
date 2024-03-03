@@ -57,6 +57,21 @@ const Header = () => {
         className="p-1 font-normal"
       >
         <NavLink
+          to="/vulnerablity"
+          className="flex items-center"
+          onClick={() => setOpenNav(false)}
+          style={({ isActive }) => (isActive ? { color: "blue" } : null)}
+        >
+          vulnerablity
+        </NavLink>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <NavLink
           to="/dashboard"
           className="flex items-center"
           onClick={() => setOpenNav(false)}

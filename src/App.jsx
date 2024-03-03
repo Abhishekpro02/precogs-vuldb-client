@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
+import { Table } from "./components/Table";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/vulnerablity" element={<Table />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/about" element={<About />} />
