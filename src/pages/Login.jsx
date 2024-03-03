@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
 import logo from "../assets/logo.png";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -53,6 +53,7 @@ const Login = () => {
                 autoComplete="email"
                 onChange={handleChange}
                 value={formData.email}
+                placeholder="Enter your email address"
                 required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -84,6 +85,7 @@ const Login = () => {
                 autoComplete="current-password"
                 onChange={handleChange}
                 value={formData.password}
+                placeholder="Enter your password"
                 required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -110,7 +112,18 @@ const Login = () => {
           </Link>
         </p>
       </div>
-      <Toaster />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };
