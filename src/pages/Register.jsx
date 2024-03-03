@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData({
+      email: "",
+      password: "",
+    });
+    toast.success("Login successful");
+  };
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -16,7 +35,7 @@ const Register = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
+        <form className="space-y-6" onSubmit={handleRegister}>
           <div>
             <label
               htmlFor="email"
@@ -30,6 +49,8 @@ const Register = () => {
                 name="email"
                 type="email"
                 autoComplete="email"
+                onChange={handleChange}
+                value={formData.email}
                 required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -59,6 +80,8 @@ const Register = () => {
                 name="password"
                 type="password"
                 autoComplete="current-password"
+                onChange={handleChange}
+                value={formData.password}
                 required
                 className="block w-full rounded-md border-0 p-1.5  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -85,6 +108,7 @@ const Register = () => {
           </Link>
         </p>
       </div>
+      <Toaster />
     </div>
   );
 };

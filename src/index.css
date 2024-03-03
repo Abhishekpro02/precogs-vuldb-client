@@ -7,3 +7,38 @@
     display: none;
     /* Hide scrollbar */
 }
+
+
+.logo {
+    position: relative;
+    color: #ffffff;
+    -webkit-text-stroke: 1px #6d37f7;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.logo::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #6d37f7;
+    -webkit-text-stroke: 0 #383d52;
+    /* border-right:2px solid #1cf220; */
+    overflow: hidden;
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0% ,10%, 100%
+    {
+        width: 0;
+    }
+    
+    70%, 90%{
+        width: 100%;
+    }
+}
