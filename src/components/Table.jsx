@@ -134,7 +134,7 @@ export function Table() {
           </div>
         </div>
       </CardHeader>
-      <CardBody className="overflow-scroll px-0 mx-1 border-2 ">
+      <CardBody className="overflow-scroll px-0 mx-1 ">
         <table className="w-full min-w-max table-auto text-left ">
           <thead>
             <tr>
