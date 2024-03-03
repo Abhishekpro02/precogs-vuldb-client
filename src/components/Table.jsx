@@ -95,17 +95,6 @@ const TABLE_ROWS = [
     accountNumber: "1234",
     expiry: "06/2026",
   },
-  {
-    img: "https://docs.material-tailwind.com/img/logos/logo-netflix.svg",
-    name: "CVE-2022-9013",
-    cwe: "CWE-123",
-    amount: "9.5",
-    date: "Wed 3:30am",
-    saverity: "critical",
-    account: "This is a description of CVE-2022-9013",
-    accountNumber: "1234",
-    expiry: "06/2026",
-  },
 ];
 
 export function Table() {
