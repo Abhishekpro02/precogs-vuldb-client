@@ -101,7 +101,7 @@ const Header = () => {
               <Button
                 variant="text"
                 size="sm"
-                className="hidden lg:inline-block"
+                className="hidden lg:inline-block rounded-md"
               >
                 <span>Sign In</span>
               </Button>
@@ -110,7 +110,7 @@ const Header = () => {
               <Button
                 variant="gradient"
                 size="sm"
-                className="hidden lg:inline-block"
+                className="hidden lg:inline-block rounded-md "
               >
                 <span>Sign up</span>
               </Button>
@@ -163,7 +163,7 @@ const Header = () => {
               fullWidth
               variant="text"
               size="sm"
-              className=""
+              className="rounded-md"
               onClick={() => setOpenNav(!openNav)}
             >
               <span>Sign In</span>
@@ -173,8 +173,8 @@ const Header = () => {
             <Button
               fullWidth
               variant="gradient"
-              size="sm"
-              className=""
+              size="md"
+              className="rounded-md"
               onClick={() => setOpenNav(!openNav)}
             >
               <span>Sign up</span>
