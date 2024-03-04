@@ -16,7 +16,7 @@ const Register = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const BASE_URL = "https://precogs-vuln-db-uvq3.vercel.app";
+  const BASE_URL = "https://precogs-vuln-db-uvq3.vercel.app/api/v1";
 
   const handleRegister = async (e) => {
     e.preventDefault();
