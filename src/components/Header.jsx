@@ -133,7 +133,7 @@ const Header = () => {
               <Button
                 variant="text"
                 size="sm"
-                className="rounded-md"
+                className="hidden lg:inline-block rounded-md"
                 // onClick={() => setAuth(null)}
                 onClick={handleLogout}
               >
@@ -144,7 +144,7 @@ const Header = () => {
                 <Button
                   variant="text"
                   size="sm"
-                  className="rounded-md"
+                  className="hidden lg:inline-block rounded-md"
                   onClick={() => setOpenNav(!openNav)}
                 >
                   <span>Sign In</span>
