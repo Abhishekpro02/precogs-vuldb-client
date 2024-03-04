@@ -9,20 +9,32 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 
 const Header = () => {
   const [openNav, setOpenNav] = useState(false);
   const [auth, setAuth] = useAuth();
 
-  const handleLogout = () => {
-    setOpenNav(false);
-    setAuth({
-      ...auth,
-      user: null,
-      token: "",
-    });
-    localStorage.removeItem("auth");
-    toast.success("Logout Successfully");
+  const handleLogout = async () => {
+    try {
+      // Make a GET request to the logout API endpoint
+      await axios.get("https://precogs-vuln-db-uvq3.vercel.app/api/v1/logout", {
+        withCredentials: true,
+      });
+
+      // Update state or do any additional cleanup
+      setOpenNav(false);
+      setAuth({
+        user: null,
+        token: "",
+      });
+      localStorage.removeItem("auth");
+
+      toast.success("Logout Successfully");
+    } catch (error) {
+      console.error("Error logging out:", error.response.data);
+      // Handle error if needed
+    }
   };
 
   useEffect(() => {
