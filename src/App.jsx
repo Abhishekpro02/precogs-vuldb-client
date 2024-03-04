@@ -8,18 +8,32 @@ import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import { Table } from "./components/Table";
+import { useAuth } from "./context/authContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
+  const [auth, setAuth] = useAuth();
+
+  const isAuthenticated = auth.user !== null && auth.user !== undefined;
+  // const isAuthenticated = !!auth.user;
   return (
     <Router>
       <Header />
 
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route path="/vulnerablity" element={<Table />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/about" element={<About />} />
+        <Route
+          path="/about"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <About />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
