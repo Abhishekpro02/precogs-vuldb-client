@@ -6,7 +6,7 @@ import {
   IconButton,
   Collapse,
 } from "@material-tailwind/react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Navigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -23,6 +23,7 @@ const Header = () => {
     });
     localStorage.removeItem("auth");
     toast.success("Logout Successfully");
+    <Navigate to="/" />;
   };
 
   useEffect(() => {
