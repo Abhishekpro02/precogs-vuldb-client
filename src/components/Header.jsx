@@ -146,7 +146,7 @@ const Header = () => {
                   variant="text"
                   size="sm"
                   className="hidden lg:inline-block rounded-md"
-                  onClick={() => setOpenNav(!openNav)}
+                  onClick={() => setOpenNav(false)}
                 >
                   <span>Sign In</span>
                 </Button>
