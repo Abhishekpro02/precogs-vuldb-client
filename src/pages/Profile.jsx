@@ -9,8 +9,9 @@ const Profile = () => {
     const res = await axios.get(`${base_url}/profile`, {
       withCredentials: true,
     });
+    console.log(res);
     setUser(res.data.user);
-  }, [user]);
+  }, []);
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="text-2xl font-bold">
