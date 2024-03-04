@@ -194,31 +194,55 @@ const Header = () => {
       <Collapse open={openNav}>
         {navList}
         <div className="flex items-center gap-x-4 justify-center">
-          <Link to="/login">
+          {auth.user ? (
             <Button
-              fullWidth
               variant="text"
               size="sm"
               className="rounded-md"
-              onClick={() => setOpenNav(!openNav)}
+              // onClick={() => setAuth(null)}
+              onClick={handleLogout}
             >
-              <span>Sign In</span>
+              <span>Sign Out</span>
             </Button>
-          </Link>
-          <Link to="/register">
-            <Button
-              fullWidth
-              variant="gradient"
-              size="md"
-              className="rounded-md"
-              onClick={() => setOpenNav(!openNav)}
-            >
-              <span>Sign up</span>
-            </Button>
-          </Link>
+          ) : (
+            <>
+              <Link to="/login">
+                <Button
+                  fullWidth
+                  variant="text"
+                  size="sm"
+                  className="rounded-md"
+                  onClick={() => setOpenNav(!openNav)}
+                >
+                  <span>Sign In</span>
+                </Button>
+              </Link>
+              <Link to="/register">
+                <Button
+                  fullWidth
+                  variant="gradient"
+                  size="md"
+                  className="rounded-md"
+                  onClick={() => setOpenNav(!openNav)}
+                >
+                  <span>Sign up</span>
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
       </Collapse>
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Navbar>
   );
 };
