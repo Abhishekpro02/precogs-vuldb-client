@@ -23,17 +23,21 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/vulnerablity" element={<Table />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route
+        {/* <Route
           path="/about"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <About />
             </ProtectedRoute>
           }
-        />
+        /> */}
+
+        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route path="/about" element={<About />} />
+          <Route path="/vulnerablity" element={<Table />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
