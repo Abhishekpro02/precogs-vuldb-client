@@ -8,10 +8,22 @@ import {
 } from "@material-tailwind/react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import { ToastContainer, toast } from "react-toastify";
 
 const Header = () => {
   const [openNav, setOpenNav] = useState(false);
   const [auth, setAuth] = useAuth();
+
+  const handleLogout = () => {
+    setOpenNav(false);
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+    toast.success("Logout Successfully");
+  };
 
   useEffect(() => {
     window.addEventListener(
@@ -122,7 +134,8 @@ const Header = () => {
                 variant="text"
                 size="sm"
                 className="rounded-md"
-                onClick={() => setAuth(null)}
+                // onClick={() => setAuth(null)}
+                onClick={handleLogout}
               >
                 <span>Sign Out</span>
               </Button>
@@ -205,6 +218,7 @@ const Header = () => {
           </Link>
         </div>
       </Collapse>
+      <ToastContainer />
     </Navbar>
   );
 };
