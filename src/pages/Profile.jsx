@@ -6,7 +6,9 @@ const Profile = () => {
 
   useEffect(async () => {
     const base_url = "https://precogs-vuln-db-uvq3.vercel.app/api/v1";
-    const res = await axios.get(`${base_url}/profile`);
+    const res = await axios.get(`${base_url}/profile`, {
+      withCredentials: true,
+    });
     setUser(res.data.user);
   }, [user]);
   return (
