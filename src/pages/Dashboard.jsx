@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../context/authContext";
 
 const Dashboard = () => {
   const [auth, setAuth] = useAuth();
+  useEffect(() => {
+    if (!auth.user) {
+      setAuth({
+        ...auth,
+        user: null,
+        token: "",
+      });
+      //   window.location.href = "/login";
+    }
+  }, [auth, setAuth]);
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
