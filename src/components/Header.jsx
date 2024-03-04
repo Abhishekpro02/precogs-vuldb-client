@@ -7,9 +7,11 @@ import {
   Collapse,
 } from "@material-tailwind/react";
 import { Link, NavLink } from "react-router-dom";
+import { useAuth } from "../context/authContext";
 
 const Header = () => {
   const [openNav, setOpenNav] = useState(false);
+  const [auth, setAuth] = useAuth();
 
   useEffect(() => {
     window.addEventListener(
@@ -115,24 +117,27 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <div className="mr-4 hidden lg:block">{navList}</div>
           <div className="flex items-center gap-x-1">
-            <Link to="/login">
+            {auth.user ? (
               <Button
                 variant="text"
                 size="sm"
-                className="hidden lg:inline-block rounded-md"
+                className="rounded-md"
+                onClick={() => setAuth(null)}
               >
-                <span>Sign In</span>
+                <span>Sign Out</span>
               </Button>
-            </Link>
-            <Link to="/register">
-              <Button
-                variant="gradient"
-                size="sm"
-                className="hidden lg:inline-block rounded-md "
-              >
-                <span>Sign up</span>
-              </Button>
-            </Link>
+            ) : (
+              <Link to="/login">
+                <Button
+                  variant="text"
+                  size="sm"
+                  className="rounded-md"
+                  onClick={() => setOpenNav(!openNav)}
+                >
+                  <span>Sign In</span>
+                </Button>
+              </Link>
+            )}
           </div>
           <IconButton
             variant="text"
