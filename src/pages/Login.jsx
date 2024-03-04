@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { useAuth } from "../context/authContext";
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const [auth, setAuth] = useAuth();
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,13 +27,22 @@ const Login = () => {
       const response = await axios.post(`${BASE_URL}/login`, formData, {
         withCredentials: true,
       });
+      setAuth({
+        ...auth,
+        user: response.data.user,
+        token: response.data.accessToken,
+      });
+
+      localStorage.setItem("auth", JSON.stringify(response.data));
 
       console.log("Login successful:", response.data);
+
       setFormData({
         email: "",
         password: "",
       });
       toast.success("Login successful");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error login user:", error.response.data);
       toast.error(error.response.data.message);
@@ -108,6 +122,7 @@ const Login = () => {
             <button
               type="submit"
               className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              //   disabled={!formData.email || !formData.password}
             >
               Sign in
             </button>
