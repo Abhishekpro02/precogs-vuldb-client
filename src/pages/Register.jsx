@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import logo from "../assets/logo.png";
+import axios from "axios";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -14,23 +16,34 @@ const Register = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleRegister = (e) => {
+  const BASE_URL = "http://localhost:5500/api/v1";
+
+  const handleRegister = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    setFormData({
-      email: "",
-      password: "",
-    });
-    toast.success("Login successful");
+
+    try {
+      const response = await axios.post(`${BASE_URL}/register`, formData);
+
+      console.log("Registration successful:", response.data);
+      setFormData({
+        email: "",
+        password: "",
+        fullName: "",
+      });
+      toast.success("Registration successful");
+    } catch (error) {
+      console.error("Error registering user:", error.response.data);
+      toast.error(error.response.data.message);
+    }
   };
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        {/* <img
+        <img
           className="mx-auto h-10 w-auto"
           src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
           alt="Your Company"
-        /> */}
+        />
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Sign up for an account
         </h2>
@@ -40,17 +53,16 @@ const Register = () => {
         <form className="space-y-6" onSubmit={handleRegister}>
           <div>
             <label
-              htmlFor="full-name"
+              htmlFor="fullName"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
               Name
             </label>
             <div className="mt-2">
               <input
-                id="full-name"
-                name="full-name"
+                id="fullName"
+                name="fullName"
                 type="text"
-                autoComplete="name"
                 placeholder="Enter your full name"
                 onChange={handleChange}
                 value={formData.fullName}

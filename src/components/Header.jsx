@@ -108,8 +108,8 @@ const Header = () => {
           >
             Technical <span className="text-indigo-600">Abhi</span>
           </Typography> */}
-          <h2 className="logo" data-text="Abhishek">
-            Abhishek
+          <h2 className="logo" data-text="Precogs.AI">
+            Precogs.AI
           </h2>
         </Link>
         <div className="flex items-center gap-4">

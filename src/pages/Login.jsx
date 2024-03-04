@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -13,14 +14,25 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = (e) => {
+  const BASE_URL = "http://localhost:5500/api/v1";
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    setFormData({
-      email: "",
-      password: "",
-    });
-    toast.success("Login successful");
+
+    try {
+      const response = await axios.post(`${BASE_URL}/login`, formData, {
+        withCredentials: true,
+      });
+
+      console.log("Login successful:", response.data);
+      setFormData({
+        email: "",
+        password: "",
+      });
+      toast.success("Login successful");
+    } catch (error) {
+      console.error("Error login user:", error.response.data);
+      toast.error(error.response.data.message);
+    }
   };
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
