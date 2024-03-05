@@ -3,7 +3,7 @@
 export const initialsAvatar = (fullName) => {
   const initials = fullName
     .split(" ")
-    .map((name) => name[0].toUpperCase())
+    .map((name) => name[0]?.toUpperCase())
     .join("");
   return initials;
 };
