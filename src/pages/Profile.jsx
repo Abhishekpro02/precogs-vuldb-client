@@ -20,7 +20,7 @@ const Profile = () => {
     };
 
     fetchData();
-  }, [user, setUser]); // Empty dependency array means this effect runs once after the initial render
+  }, []); // Empty dependency array means this effect runs once after the initial render
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100 flex-col">
