@@ -1,9 +1,9 @@
 import React from "react";
-import { initialsAvatar, randomBackgroundColor } from "./utils"; // Custom utility functions for avatar and background color
+import { initialsAvatar, fixedPinkBackgroundColor } from "./utils"; // Custom utility functions for avatar and background color
 
 const UserCard = ({ user }) => {
   const avatarInitials = initialsAvatar(user.fullName);
-  const bgColor = randomBackgroundColor();
+  const bgColor = fixedPinkBackgroundColor();
 
   return (
     <div className="max-w-md mx-auto bg-white shadow-lg rounded-md overflow-hidden mt-3">

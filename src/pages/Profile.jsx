@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import UserCard from "./UserCard";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -28,7 +27,6 @@ const Profile = () => {
       <div className="text-2xl font-bold">
         This is the <span className="text-indigo-500">Profile</span> Page
       </div>
-      <UserCard user={user} />
       <pre>{JSON.stringify(user, null, 4)}</pre>
     </div>
   );
