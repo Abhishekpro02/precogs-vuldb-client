@@ -20,7 +20,8 @@ const Dashboard = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
-      <UserCard user={auth.user} />
+      {/* <UserCard user={auth.user} /> */}
+      <h1>db</h1>
     </div>
   );
 };
