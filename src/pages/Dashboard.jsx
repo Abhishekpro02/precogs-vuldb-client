@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useAuth } from "../context/authContext";
-import { useHistory } from "react-router-dom";
 import UserCard from "./UserCard";
 
 const Dashboard = () => {
@@ -14,13 +13,12 @@ const Dashboard = () => {
         token: "",
       });
       // Redirect to the login page
-      history.push("/login");
     }
-  }, [auth, setAuth, history]);
+  }, [auth, setAuth]);
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
-      {/* <UserCard user={auth.user} /> */}
+      <UserCard user={auth.user} />
       <h1>db</h1>
     </div>
   );
