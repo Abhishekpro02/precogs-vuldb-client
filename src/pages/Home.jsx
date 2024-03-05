@@ -45,7 +45,7 @@ const Home = () => {
             <p className="text-3xl font-bold text-yellow-600">20</p>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-semibold mb-2">Soureces</h2>
+            <h2 className="text-xl font-semibold mb-2">Sources</h2>
             <p className="text-3xl font-bold text-green-600">2</p>
           </div>
         </div>
