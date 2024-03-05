@@ -23,14 +23,13 @@ const Profile = () => {
     fetchData();
   }, []); // Empty dependency array means this effect runs once after the initial render
 
+  console.log(user);
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100 flex-col">
-      <UserCard user={user} />
-
-      {/* <div className="text-2xl font-bold">
+      <div className="text-2xl font-bold">
         This is the <span className="text-indigo-500">Profile</span> Page
       </div>
-      <pre>{JSON.stringify(user, null, 4)}</pre> */}
+      <pre>{JSON.stringify(user, null, 4)}</pre>
     </div>
   );
 };
