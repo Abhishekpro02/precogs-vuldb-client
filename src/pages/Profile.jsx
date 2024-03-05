@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import UserCard from "./UserCard";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -23,10 +24,11 @@ const Profile = () => {
   }, [user, setUser]); // Empty dependency array means this effect runs once after the initial render
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center h-screen bg-gray-100 flex-col">
       <div className="text-2xl font-bold">
         This is the <span className="text-indigo-500">Profile</span> Page
       </div>
+      <UserCard user={user} />
       <pre>{JSON.stringify(user, null, 4)}</pre>
     </div>
   );
