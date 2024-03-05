@@ -4,14 +4,24 @@ import React, { useEffect, useState } from "react";
 const Profile = () => {
   const [user, setUser] = useState(null);
 
-  useEffect(async () => {
-    const base_url = "https://precogs-vuln-db-uvq3.vercel.app/api/v1";
-    const res = await axios.get(`${base_url}/profile`, {
-      withCredentials: true,
-    });
-    console.log(res);
-    setUser(res.data.user);
-  }, [user, setUser]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const base_url = "https://precogs-vuln-db-uvq3.vercel.app/api/v1";
+        const res = await axios.get(`${base_url}/profile`, {
+          withCredentials: true,
+        });
+        console.log(res);
+        setUser(res.data.user);
+      } catch (error) {
+        console.error("Error fetching profile:", error.response.data);
+        // Handle error if needed
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array means this effect runs once after the initial render
+
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="text-2xl font-bold">
