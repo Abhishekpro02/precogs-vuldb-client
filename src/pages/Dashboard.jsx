@@ -4,7 +4,6 @@ import UserCard from "./UserCard";
 
 const Dashboard = () => {
   const [auth, setAuth] = useAuth();
-  const history = useHistory();
 
   useEffect(() => {
     if (!auth.user) {
