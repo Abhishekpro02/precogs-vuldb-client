@@ -13,9 +13,12 @@ const UserCard = ({ user }) => {
         {avatarInitials}
       </div>
       <div className="p-6">
-        <h2 className="text-xl font-semibold mb-2">{user.fullName}</h2>
-        <p className="text-gray-600">{user.email}</p>
+        <h2 className="text-xl font-semibold mb-2 text-center">
+          {user.fullName}
+        </h2>
+        <p className="text-gray-600">Email: {user.email}</p>
         <p className="text-gray-600">Role: {user.role}</p>
+        <p className="text-gray-600">Company: Precogs.AI</p>
       </div>
       <div className="bg-gray-100 p-4 border-t border-gray-200">
         <span className="text-xs text-gray-500">
