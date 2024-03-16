@@ -74,6 +74,18 @@ const TABLE_ROWS = [
     expiry: "06/2026",
   },
   {
+    img: "https://docs.material-tailwind.com/img/logos/logo-pinterest.svg",
+    name: "CVE-2022-90158",
+    cwe: "CWE-123",
+    amount: "3.5",
+    date: "Mon 7:40pm",
+    saverity: "low",
+    account: "This is a description of CVE-2022-9013",
+    accountNumber: "1234",
+    expiry: "06/2026",
+  },
+
+  {
     img: "https://docs.material-tailwind.com/img/logos/logo-google.svg",
     name: "CVE-2022-9016",
     cwe: "CWE-123",
