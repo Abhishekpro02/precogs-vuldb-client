@@ -11,7 +11,7 @@ const VulnDetails = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div className="col-span-1 h-25">
-          <div className="bg-white rounded-lg shadow-md p-2 h-full flex flex-col justify-center items-center">
+          <div className="bg-white rounded-lg shadow-lg p-2 h-full flex flex-col justify-center items-center">
             <h2 className="text-lg font-semibold">CVE ID:</h2>
             <p>CVE-2024-1234</p>
           </div>
@@ -23,7 +23,7 @@ const VulnDetails = () => {
           </div>
         </div>
         <div className="col-span-1 h-25">
-          <div className="bg-white rounded-lg shadow-md p-2 h-full flex flex-col justify-center items-center">
+          <div className="bg-white rounded-lg shadow p-2 h-full flex flex-col justify-center items-center">
             <h2 className="text-lg font-semibold">
               Vulnerability Classification:
             </h2>
@@ -51,7 +51,7 @@ const VulnDetails = () => {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `rgba(242, 22, 124, ${score / 10})`,
+                    stroke: `rgba(243, 82, 46, ${score / 10})`,
                   },
                   trail: {
                     // Trail color
@@ -59,7 +59,7 @@ const VulnDetails = () => {
                   },
                   text: {
                     // Text color
-                    fill: "#11ea47",
+                    fill: "#565656",
                     fontSize: "24px",
                     fontWeight: "bold",
                   },
@@ -73,11 +73,13 @@ const VulnDetails = () => {
                   score >= 7.0 ? "text-red-600" : "text-blue-600"
                 }`}
               >
-                {score}{" "}
+                {/* {score}{" "} */}
                 <span
                   className={`bg-${
                     score >= 7.0 ? "red-200" : "blue"
-                  }-200 px-2 py-1 rounded-md`}
+                  }-200 px-2 py-1 rounded-md border-2
+                
+                  `}
                 >
                   High
                 </span>
@@ -94,34 +96,44 @@ const VulnDetails = () => {
           A vulnerability that allows remote attackers to execute arbitrary code
         </p>
       </div>
-
-      <div className="col-span-2 lg:col-span-3 mt-2">
-        <h2 className="text-lg font-semibold">Summary:</h2>
+      <div className="col-span-2">
+        <h2 className="text-lg font-semibold">Description:</h2>
         <p>
-          A vulnerability that allows remote attackers to execute arbitrary code
+          Buffer overflow vulnerability in the XYZ component allows remote
+          attackers to execute arbitrary code via a crafted file.
         </p>
       </div>
-
-      <div className="col-span-2 lg:col-span-3 mt-2">
-        <h2 className="text-lg font-semibold">Summary:</h2>
-        <p>
-          A vulnerability that allows remote attackers to execute arbitrary code
-        </p>
+      <div className="col-span-2">
+        <h2 className="text-lg font-semibold">Commit Link:</h2>
+        <p>https://github.com/yourproject/commit/123456</p>
       </div>
-
-      <div className="col-span-2 lg:col-span-3 mt-2">
-        <h2 className="text-lg font-semibold">Summary:</h2>
-        <p>
-          A vulnerability that allows remote attackers to execute arbitrary code
-          A vulnerability that allows remote attackers to execute arbitrary code
-        </p>
+      <div className="col-span-2">
+        <h2 className="text-lg font-semibold">Commit Message:</h2>
+        <p>Fixed buffer overflow vulnerability</p>
       </div>
-
-      <div className="col-span-2 lg:col-span-3 mt-2">
-        <h2 className="text-lg font-semibold">Summary:</h2>
-        <p>
-          A vulnerability that allows remote attackers to execute arbitrary code
-        </p>
+      <div className="col-span-2">
+        <h2 className="text-lg font-semibold">Project:</h2>
+        <p>FFMpeg</p>
+      </div>
+      <div className="col-span-2">
+        <h2 className="text-lg font-semibold">Language:</h2>
+        <p>JavaScript</p>
+      </div>
+      <div className="col-span-2">
+        <h2 className="text-lg font-semibold">References:</h2>
+        <ul>
+          <li>
+            <a
+              href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1234"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-blue-500 hover:underline "
+              title="CVE Link"
+            >
+              CVE Link
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );
