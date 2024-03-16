@@ -50,3 +50,9 @@ body {
         width: 100%;
     }
 }
+
+
+b{
+    color:rgb(242, 22, 124);
+    -webkit-text-stroke: 1.5px #6d37f7;
+}
