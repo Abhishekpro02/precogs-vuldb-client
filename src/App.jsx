@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import { Table } from "./components/Table";
 import { useAuth } from "./context/authContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import VulnDetails from "./pages/VulnDetails";
 
 const App = () => {
   const [auth, setAuth] = useAuth();
@@ -34,12 +35,15 @@ const App = () => {
 
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
           <Route path="/about" element={<About />} />
-          <Route path="/vulnerablity" element={<Table />} />
+          {/* <Route path="/vulnerablity" element={<Table />} /> */}
           <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/vulnerablity" element={<Table />} />
+        <Route path="/vulnerablity/:id" element={<VulnDetails />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

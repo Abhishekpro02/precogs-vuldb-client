@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="bg-white min-h-screen">
+      <div className="mx-auto max-w-7xl p-4 bg-white rounded-lg shadow-lg">
         {/* <h1 className="text-3xl font-bold text-gray-800 mb-4">
           Vulnerability Scanner
         </h1> */}
