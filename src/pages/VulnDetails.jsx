@@ -9,7 +9,7 @@ const VulnDetails = () => {
       <h1 className="text-3xl font-bold text-center text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text mb-8">
         Vulnerability Details
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div className="col-span-1 h-25">
           <div className="bg-white rounded-lg shadow-md p-2 h-full flex flex-col justify-center items-center">
             <h2 className="text-lg font-semibold">CVE ID:</h2>
@@ -86,6 +86,35 @@ const VulnDetails = () => {
           </div>
         </div>
         {/* Other details */}
+      </div>
+
+      <div className="col-span-2 lg:col-span-3 mt-2">
+        <h2 className="text-lg font-semibold">Summary:</h2>
+        <p>
+          A vulnerability that allows remote attackers to execute arbitrary code
+        </p>
+      </div>
+
+      <div className="col-span-2 lg:col-span-3 mt-2">
+        <h2 className="text-lg font-semibold">Summary:</h2>
+        <p>
+          A vulnerability that allows remote attackers to execute arbitrary code
+        </p>
+      </div>
+
+      <div className="col-span-2 lg:col-span-3 mt-2">
+        <h2 className="text-lg font-semibold">Summary:</h2>
+        <p>
+          A vulnerability that allows remote attackers to execute arbitrary code
+        </p>
+      </div>
+
+      <div className="col-span-2 lg:col-span-3 mt-2">
+        <h2 className="text-lg font-semibold">Summary:</h2>
+        <p>
+          A vulnerability that allows remote attackers to execute arbitrary code
+          A vulnerability that allows remote attackers to execute arbitrary code
+        </p>
       </div>
 
       <div className="col-span-2 lg:col-span-3 mt-2">
