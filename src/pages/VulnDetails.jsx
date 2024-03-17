@@ -4,6 +4,34 @@ import "react-circular-progressbar/dist/styles.css";
 
 const VulnDetails = () => {
   const score = 7.5;
+  const severityColors = {
+    Low: "blue-200",
+    Medium: "yellow-200",
+    High: "red-200",
+    Critical: "red-800",
+  };
+
+  const severityTextColors = {
+    Low: "blue-600",
+    Medium: "yellow-600",
+    High: "red-600",
+    Critical: "red-800",
+  };
+  const severityPathColors = {
+    Low: "#3182ce",
+    Medium: "#f6e05e",
+    High: "#f56565",
+    Critical: "#e53e3e",
+  };
+
+  const getSeverityColor = (score) => {
+    if (score < 4.0) return "Low";
+    if (score < 7.0) return "Medium";
+    if (score < 9.0) return "High";
+    return "Critical";
+  };
+
+  const severity = getSeverityColor(score);
   return (
     <div className="mx-auto max-w-7xl p-4 bg-white rounded-lg shadow-lg ">
       <h1 className="text-3xl font-bold text-center text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text mb-8">
@@ -51,7 +79,7 @@ const VulnDetails = () => {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `rgba(243, 82, 46, ${score / 10})`,
+                    stroke: `${severityPathColors[severity]}`,
                   },
                   trail: {
                     // Trail color
@@ -66,14 +94,13 @@ const VulnDetails = () => {
                 }}
               />
             </div>
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <p className="text-lg font-semibold">Severity Score</p>
               <p
                 className={`text-lg font-semibold ${
                   score >= 7.0 ? "text-red-600" : "text-blue-600"
                 }`}
               >
-                {/* {score}{" "} */}
                 <span
                   className={`bg-${
                     score >= 7.0 ? "red-200" : "blue"
@@ -84,7 +111,20 @@ const VulnDetails = () => {
                   High
                 </span>
               </p>
+            </div> */}
+            <div className="mt-4">
+              <p className="text-lg font-semibold">Severity Score</p>
+              <p
+                className={`text-lg font-semibold text-${severityTextColors[severity]}`}
+              >
+                <span
+                  className={`text-${severityColors[severity]} px-2 py-1 rounded-md border-2`}
+                >
+                  {severity}
+                </span>
+              </p>
             </div>
+            ;
           </div>
         </div>
         {/* Other details */}

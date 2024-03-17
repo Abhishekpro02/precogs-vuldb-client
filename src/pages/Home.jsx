@@ -7,7 +7,7 @@ const Home = () => {
         {/* <h1 className="text-3xl font-bold text-gray-800 mb-4">
           Vulnerability Scanner
         </h1> */}
-        <h1 className="text-3xl font-bold mb-4">
+        {/* <h1 className="text-3xl font-bold mb-4">
           <span className="text-blue-500">V</span>
           <span className="text-green-500">u</span>
           <span className="text-yellow-500">l</span>
@@ -29,8 +29,14 @@ const Home = () => {
           <span className="text-red-500">n</span>
           <span className="text-purple-500">e</span>
           <span className="text-blue-500">r</span>
-        </h1>
-        <p className="text-lg text-gray-600 mb-8">
+        </h1> */}
+        <div className="text-center">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500  to-pink-500 text-transparent bg-clip-text">
+            Vulnerability Scanner
+          </h1>
+        </div>
+
+        <p className="text-lg text-gray-600 mb-8 text-center">
           Stay informed about the latest vulnerabilities in your system.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -52,7 +58,7 @@ const Home = () => {
         <div className="mt-8 text-center">
           <Link
             to="/vulnerablity"
-            className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600"
+            className="bg-gradient-to-r from-blue-500 to-red-500 text-white py-2 px-4 rounded-sm shadow-md hover:from-blue-600 hover:to-red-600"
           >
             View All Vulnerabilities
           </Link>

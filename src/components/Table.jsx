@@ -1,5 +1,7 @@
 import { ClockIcon, EyeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 import { CSVLink } from "react-csv";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 import {
   ArrowDownTrayIcon,
@@ -119,6 +121,7 @@ export function Table() {
     setOpen(!open);
   };
   console.log(selected?.name);
+  const score = 7.5;
 
   return (
     <div className="mx-auto max-w-7xl p-4 bg-white rounded-lg shadow-lg ">
@@ -339,7 +342,7 @@ export function Table() {
                 className="flex justify-between items-center border-b-2 border-gray-200 p-4"
               >
                 <h1 className="text-2xl font-bold text-blue-gray-900">
-                  This is head
+                  {selected?.name}
                 </h1>
                 <IconButton onClick={handleOpen} aria-label="Close">
                   {/* <CloseIcon className="w-6 h-6" /> */}x
@@ -354,11 +357,30 @@ export function Table() {
                     </h1>
                     <p className="text-gray-500">Wed 3:30am</p>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-blue-500 flex items-center justify-center rounded-full text-white mr-4">
-                      9.5
+                  <div className="flex items-center gap-3">
+                    <div style={{ width: 60, height: 60 }}>
+                      <CircularProgressbar
+                        value={score * 10} // Convert score to percentage
+                        text={score.toFixed(1)} // Display score with one decimal point
+                        styles={{
+                          path: {
+                            // Path color
+                            stroke: `#f56565`,
+                          },
+                          trail: {
+                            // Trail color
+                            stroke: "#f3f3f3",
+                          },
+                          text: {
+                            // Text color
+                            fill: "#565656",
+                            fontSize: "24px",
+                            fontWeight: "bold",
+                          },
+                        }}
+                      />
                     </div>
-                    <p className="text-gray-500">critical</p>
+                    <p className="text-gray-500 text-2xl">critical</p>
                   </div>
                 </div>
                 <div className="mt-4">
