@@ -30,6 +30,7 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { SimplePagination } from "./Pagination";
 
 const TABLE_HEAD = [
   "CVE ID",
@@ -67,17 +68,6 @@ const TABLE_ROWS = [
   {
     img: "https://docs.material-tailwind.com/img/logos/logo-pinterest.svg",
     name: "CVE-2022-9015",
-    cwe: "CWE-123",
-    amount: "3.5",
-    date: "Mon 7:40pm",
-    saverity: "low",
-    account: "This is a description of CVE-2022-9013",
-    accountNumber: "1234",
-    expiry: "06/2026",
-  },
-  {
-    img: "https://docs.material-tailwind.com/img/logos/logo-pinterest.svg",
-    name: "CVE-2022-90158",
     cwe: "CWE-123",
     amount: "3.5",
     date: "Mon 7:40pm",
@@ -333,6 +323,10 @@ export function Table() {
               )}
             </tbody>
           </table>
+          {/* pagination here */}
+          <div className="flex justify-center mt-8">
+            <SimplePagination />
+          </div>
           {/* modal  */}
 
           <div className="modal">
