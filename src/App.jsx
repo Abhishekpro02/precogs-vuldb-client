@@ -12,6 +12,7 @@ import { useAuth } from "./context/authContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import VulnDetails from "./pages/VulnDetails";
 import { CustomTable } from "./components/CTable";
+import Analytics from "./pages/Analytics";
 
 const App = () => {
   const [auth, setAuth] = useAuth();
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/vulnerablity" element={<Table />} />
         <Route path="/ctable" element={<CustomTable />} />
+        <Route path="/analytics" element={<Analytics />} />
         <Route path="/vulnerablity/:id" element={<VulnDetails />} />
 
         <Route path="*" element={<NotFound />} />
