@@ -53,7 +53,7 @@ const Analytics = () => {
             />
           </div>
         </div>
-        <div className="max-w-full">
+        {/* <div className="max-w-full">
           <div className="bg-white rounded-lg shadow-md p-4">
             <Chart
               chartType="Bar"
@@ -63,7 +63,7 @@ const Analytics = () => {
               options={options2}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
