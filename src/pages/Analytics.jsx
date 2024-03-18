@@ -14,18 +14,28 @@ export const options = {
 };
 
 export const data2 = [
-  ["Year", "Commits"],
-  ["2014", 1000],
-  ["2015", 1170],
-  ["2016", 660],
-  ["2017", 1030],
-  ["2018", 1030],
-  ["2019", 1030],
-  ["2020", 1030],
-  ["2021", 1030],
-  ["2022", 1030],
-  ["2023", 1030],
+  ["Programming Language ", "Total"],
+  ["Javascript", 11],
+  ["Python", 2],
+  ["Java", 2],
+  ["C++", 2],
+  ["C#", 2],
+  ["C", 2],
+  ["Go", 2],
+  ["Rust", 2],
+  ["Ruby", 2],
+  ["Swift", 2],
+  ["Kotlin", 2],
+  ["Dart", 2],
+  ["TypeScript", 2],
+  ["PHP", 2],
+  ["Rust", 2],
+  ["Other", 3],
 ];
+
+export const options1 = {
+  title: "Programming Language Distribution",
+};
 
 export const options2 = {
   chart: {
@@ -53,6 +63,18 @@ const Analytics = () => {
             />
           </div>
         </div>
+        <div className="max-w-full">
+          <div className="bg-white rounded-lg shadow-md p-4">
+            <Chart
+              chartType="PieChart"
+              data={data2}
+              options={options1}
+              width={"100%"}
+              height={"400px"}
+            />
+          </div>
+        </div>
+
         {/* <div className="max-w-full">
           <div className="bg-white rounded-lg shadow-md p-4">
             <Chart
