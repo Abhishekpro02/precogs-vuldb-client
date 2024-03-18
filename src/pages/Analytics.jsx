@@ -15,15 +15,15 @@ export const options = {
 
 export const data2 = [
   ["Year", "Commits"],
-  ["2014", 600],
-  ["2015", 570],
+  ["2014", 1000],
+  ["2015", 1170],
   ["2016", 660],
-  ["2017", 630],
-  ["2018", 830],
-  ["2019", 730],
-  ["2020", 940],
-  ["2021", 830],
-  ["2022", 930],
+  ["2017", 1030],
+  ["2018", 1030],
+  ["2019", 1030],
+  ["2020", 1030],
+  ["2021", 1030],
+  ["2022", 1030],
   ["2023", 1030],
 ];
 
@@ -41,7 +41,7 @@ const Analytics = () => {
       <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-red-400 to-blue-500 text-transparent bg-clip-text">
         Analytics Page
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center mt-5">
         <div className="max-w-md w-full">
           <div className="bg-white rounded-lg shadow-md p-4">
             <Chart
