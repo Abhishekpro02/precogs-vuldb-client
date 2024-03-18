@@ -11,11 +11,13 @@ export const data = [
 
 export const options = {
   title: "Severity Distribution",
+  pieHole: 0.4,
+  is3D: false,
 };
 
 export const data2 = [
   ["Programming Language ", "Total"],
-  ["Javascript", 11],
+  ["Javascript🐰", 11],
   ["Python", 2],
   ["Java", 2],
   ["C++", 2],
@@ -52,7 +54,7 @@ const Analytics = () => {
         Analytics Page
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center mt-5">
-        <div className="max-w-md w-full">
+        <div className="max-w-full">
           <div className="bg-white rounded-lg shadow-md p-4">
             <Chart
               chartType="PieChart"
