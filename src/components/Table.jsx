@@ -30,7 +30,7 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { SimplePagination } from "./Pagination";
+import SimplePagination from "./Pagination";
 
 const TABLE_HEAD = [
   "CVE ID",

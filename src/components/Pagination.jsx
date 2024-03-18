@@ -1,20 +1,23 @@
 import React from "react";
-import { IconButton, Typography } from "@material-tailwind/react";
+import { IconButton, Typography, Table } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import axios from "axios";
 
-export function SimplePagination() {
+const SimplePagination = ({ data, totalPages, onPageChange }) => {
   const [active, setActive] = React.useState(1);
 
   const next = () => {
-    if (active === 10) return;
+    if (active === totalPages) return;
 
     setActive(active + 1);
+    onPageChange(active + 1);
   };
 
   const prev = () => {
     if (active === 1) return;
 
     setActive(active - 1);
+    onPageChange(active - 1);
   };
 
   return (
@@ -29,16 +32,18 @@ export function SimplePagination() {
       </IconButton>
       <Typography color="gray" className="font-normal">
         Page <strong className="text-gray-900">{active}</strong> of{" "}
-        <strong className="text-gray-900">10</strong>
+        <strong className="text-gray-900">{totalPages}</strong>
       </Typography>
       <IconButton
         size="sm"
         variant="outlined"
         onClick={next}
-        disabled={active === 10}
+        disabled={active === totalPages}
       >
         <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
       </IconButton>
     </div>
   );
-}
+};
+
+export default SimplePagination;
