@@ -221,6 +221,12 @@ export function CustomTable() {
       onPageChange(page); // Trigger the page change
     }
   };
+  const handleInputKeyPress = (e) => {
+    console.log("h", e.key);
+    if (e.key === "Enter") {
+      handleGoToPage();
+    }
+  };
 
   console.log(currentPage);
 
@@ -291,6 +297,7 @@ export function CustomTable() {
             className="px-3 py-1 border rounded-md mr-2 border-black"
             value={inputPage}
             onChange={handleInputChange}
+            onKeyPress={handleInputKeyPress}
           />
           <button
             className="px-3 py-1 bg-black text-white rounded-md"
