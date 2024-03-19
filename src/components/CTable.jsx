@@ -60,6 +60,112 @@
 //   );
 // }
 
+// import React from "react";
+// import axios from "axios";
+// import SimplePagination from "./Pagination";
+// import Loader from "./Loader";
+
+// export function CustomTable() {
+//   const [data, setData] = React.useState([]);
+//   const [currentPage, setCurrentPage] = React.useState(1);
+//   const [totalPages, setTotalPages] = React.useState(500);
+//   const [loading, setLoading] = React.useState(false);
+
+//   const fetchData = async (page) => {
+//     setLoading(true);
+//     try {
+//       const response = await axios.get(
+//         `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=10`
+//       );
+//       setData(response.data);
+//       //   setTotalPages(Math.ceil(response.headers["x-total-count"] / 5));
+//     } catch (error) {
+//       console.error("Error fetching data:", error);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   React.useEffect(() => {
+//     fetchData(1);
+//   }, []);
+
+//   const onPageChange = (page) => {
+//     setCurrentPage(page);
+//     fetchData(page);
+//   };
+
+//   console.log(data.length);
+
+//   return (
+//     <div className="flex flex-col items-center justify-center mt-8">
+//       {loading ? (
+//         <Loader />
+//       ) : (
+//         <table className="table-auto border-collapse w-full">
+//           <thead>
+//             <tr>
+//               <th className="border p-2">Id</th>
+//               <th className="border p-2">Title</th>
+//               <th className="border p-2">URL</th>
+//               <th className="border p-2">ThumbNail</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {data.map((item) => (
+//               <tr key={item.id}>
+//                 <td className="border p-2">{item.id}</td>
+//                 <td className="border p-2">{item.title}</td>
+//                 <td className="border p-2">{item.url}</td>
+//                 <td className="border p-2">{item.thumbnailUrl}</td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       )}
+//       <div className="mt-8 ">
+//         <SimplePagination
+//           currentPage={currentPage}
+//           totalPages={totalPages}
+//           onPageChange={onPageChange}
+//         />
+//       </div>
+//       <div>
+//         <label htmlFor="goToPage" className="sr-only">
+//           Go to Page
+//         </label>
+//         <input
+//           id="goToPage"
+//           type="number"
+//           min="1"
+//           max={totalPages}
+//           className="px-3 py-1 border rounded-md mr-2"
+//           onChange={(e) => {
+//             const page = parseInt(e.target.value, 10);
+//             if (!isNaN(page) && page >= 1 && page <= totalPages) {
+//               onPageChange(page);
+//             }
+//           }}
+//         />
+//         <button
+//           className="px-3 py-1 bg-blue-500 text-white rounded-md"
+//           onClick={() => {
+//             const page = parseInt(
+//               document.getElementById("goToPage").value,
+//               10
+//             );
+//             if (!isNaN(page) && page >= 1 && page <= totalPages) {
+//               onPageChange(page);
+//             }
+//           }}
+//         >
+//           Go
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
 import React from "react";
 import axios from "axios";
 import SimplePagination from "./Pagination";
@@ -70,6 +176,7 @@ export function CustomTable() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(500);
   const [loading, setLoading] = React.useState(false);
+  const [inputPage, setInputPage] = React.useState("");
 
   const fetchData = async (page) => {
     setLoading(true);
@@ -78,7 +185,7 @@ export function CustomTable() {
         `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=10`
       );
       setData(response.data);
-      //   setTotalPages(Math.ceil(response.headers["x-total-count"] / 5));
+      // setTotalPages(Math.ceil(response.headers["x-total-count"] / 5));
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -95,7 +202,27 @@ export function CustomTable() {
     fetchData(page);
   };
 
-  console.log(data.length);
+  const handleInputChange = (e) => {
+    setInputPage(e.target.value);
+  };
+
+  //   const handleGoToPage = () => {
+  //     const page = parseInt(inputPage, 10);
+  //     if (!isNaN(page) && page >= 1 && page <= totalPages) {
+  //       onPageChange(page);
+  //     }
+  //     setCurrentPage(page); // Update the current page state
+  //     onPageChange(page);
+  //   };
+  const handleGoToPage = () => {
+    const page = parseInt(inputPage, 10);
+    if (!isNaN(page) && page >= 1 && page <= totalPages) {
+      setCurrentPage(page); // Update the current page state
+      onPageChange(page); // Trigger the page change
+    }
+  };
+
+  console.log(currentPage);
 
   return (
     <div className="flex flex-col items-center justify-center mt-8">
@@ -129,6 +256,22 @@ export function CustomTable() {
           totalPages={totalPages}
           onPageChange={onPageChange}
         />
+      </div>
+      <div className="mt-4 flex items-center">
+        <input
+          type="number"
+          min="1"
+          max={totalPages}
+          className="px-3 py-1 border rounded-md mr-2"
+          value={inputPage}
+          onChange={handleInputChange}
+        />
+        <button
+          className="px-3 py-1 bg-black text-white rounded-md"
+          onClick={handleGoToPage}
+        >
+          Go
+        </button>
       </div>
     </div>
   );
