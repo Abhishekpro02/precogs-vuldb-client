@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import UserCard from "./UserCard";
+import Loader from "../components/Loader";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +19,8 @@ const Profile = () => {
       } catch (error) {
         console.error("Error fetching profile:", error.response.data);
         // Handle error if needed
+      } finally {
+        setLoading(false); // Set loading to false when the request is completed
       }
     };
 
@@ -29,7 +33,7 @@ const Profile = () => {
       <div className="text-2xl font-bold">
         This is the <span className="text-indigo-500">Profile</span> Page
       </div>
-      <pre>{JSON.stringify(user, null, 4)}</pre>
+      {loading ? <Loader /> : <pre>{JSON.stringify(user, null, 4)}</pre>}
     </div>
   );
 };
