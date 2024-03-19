@@ -235,51 +235,30 @@ export function CustomTable() {
       {loading ? (
         <Loader />
       ) : (
-        <table className="table-auto border-collapse w-full">
-          <thead>
-            <tr>
-              <th className="border p-2">Id</th>
-              <th className="border p-2">Title</th>
-              <th className="border p-2">URL</th>
-              <th className="border p-2">ThumbNail</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item) => (
-              <tr key={item.id}>
-                <td className="border p-2">{item.id}</td>
-                <td className="border p-2">{item.title}</td>
-                <td className="border p-2">{item.url}</td>
-                <td className="border p-2">{item.thumbnailUrl}</td>
+        <div className="overflow-x-auto w-full">
+          <table className="table-auto border-collapse w-full">
+            <thead>
+              <tr>
+                <th className="border p-2">Id</th>
+                <th className="border p-2">Title</th>
+                <th className="border p-2">URL</th>
+                <th className="border p-2">ThumbNail</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {data.map((item) => (
+                <tr key={item.id}>
+                  <td className="border p-2">{item.id}</td>
+                  <td className="border p-2">{item.title}</td>
+                  <td className="border p-2">{item.url}</td>
+                  <td className="border p-2">{item.thumbnailUrl}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
-      {/* <div className="mt-8 ">
-        <SimplePagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={onPageChange}
-        />
-      </div>
-      <div className="mt-4 flex items-center">
-        <input
-          type="number"
-          min="1"
-          max={totalPages}
-          placeholder="page"
-          className="px-3 py-1 border rounded-md mr-2 border-black"
-          value={inputPage}
-          onChange={handleInputChange}
-        />
-        <button
-          className="px-3 py-1 bg-black text-white rounded-md"
-          onClick={handleGoToPage}
-        >
-          Go
-        </button>
-      </div> */}
+
       <div className="mt-8 flex flex-col md:flex-row items-center gap-3 justify-between">
         <div className="mb-4 md:mb-0">
           <SimplePagination
