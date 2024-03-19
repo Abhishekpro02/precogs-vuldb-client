@@ -250,7 +250,7 @@ export function CustomTable() {
           </tbody>
         </table>
       )}
-      <div className="mt-8 ">
+      {/* <div className="mt-8 ">
         <SimplePagination
           currentPage={currentPage}
           totalPages={totalPages}
@@ -262,7 +262,8 @@ export function CustomTable() {
           type="number"
           min="1"
           max={totalPages}
-          className="px-3 py-1 border rounded-md mr-2"
+          placeholder="page"
+          className="px-3 py-1 border rounded-md mr-2 border-black"
           value={inputPage}
           onChange={handleInputChange}
         />
@@ -272,6 +273,32 @@ export function CustomTable() {
         >
           Go
         </button>
+      </div> */}
+      <div className="mt-8 flex flex-col md:flex-row items-center gap-3 justify-between">
+        <div className="mb-4 md:mb-0">
+          <SimplePagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={onPageChange}
+          />
+        </div>
+        <div className="flex items-center">
+          <input
+            type="number"
+            min="1"
+            max={totalPages}
+            placeholder="Page"
+            className="px-3 py-1 border rounded-md mr-2 border-black"
+            value={inputPage}
+            onChange={handleInputChange}
+          />
+          <button
+            className="px-3 py-1 bg-black text-white rounded-md"
+            onClick={handleGoToPage}
+          >
+            Go
+          </button>
+        </div>
       </div>
     </div>
   );
