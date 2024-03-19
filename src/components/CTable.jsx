@@ -297,7 +297,8 @@ export function CustomTable() {
             className="px-3 py-1 border rounded-md mr-2 border-black"
             value={inputPage}
             onChange={handleInputChange}
-            onKeyPress={handleInputKeyPress}
+            // onKeyPress={handleInputKeyPress}
+            onKeyDown={handleInputKeyPress}
           />
           <button
             className="px-3 py-1 bg-black text-white rounded-md"
