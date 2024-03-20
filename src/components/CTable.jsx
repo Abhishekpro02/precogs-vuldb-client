@@ -195,8 +195,47 @@ export function CustomTable() {
           onChange={handleSearchInputChange}
         />
       </div>
+      {/* {loading ? (
+        <Loader />
+      ) : (
+        <div className="overflow-x-auto w-full">
+          <table className="table-auto border-collapse w-full">
+            <thead>
+              <tr>
+                <th className="border p-2">Id</th>
+                <th className="border p-2">Title</th>
+                <th className="border p-2">URL</th>
+                <th className="border p-2">ThumbNail</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((item) => (
+                <tr key={item.id}>
+                  <td className="border p-2">{item.id}</td>
+                  <td className="border p-2">{item.title}</td>
+                  <td className="border p-2">{item.url}</td>
+                  <td className="border p-2">{item.thumbnailUrl}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )} */}
       {loading ? (
         <Loader />
+      ) : data.length === 0 ? (
+        <div
+          style={{ width: "600px", height: "400px" }}
+          className="flex items-center justify-center"
+        >
+          {/* Show table with fixed width and height in center */}
+          <p
+            className="text-gray-500 text-xl font-semibold"
+            style={{ textAlign: "center" }}
+          >
+            Opps! No data Found
+          </p>
+        </div>
       ) : (
         <div className="overflow-x-auto w-full">
           <table className="table-auto border-collapse w-full">
